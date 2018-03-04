@@ -23,9 +23,9 @@ public class Gerenciador{
     public static void main(String[] args) {
        
         Gerenciador gerprod = new Gerenciador();
-                  
+                          
         gerprod.Menu();
-        
+               
         
     }
    
@@ -43,6 +43,15 @@ public class Gerenciador{
                 System.exit(menu);
             case 1:
                 Inserir();
+            try {
+                incluir();
+
+            } catch (ClassNotFoundException ex) {
+                System.err.println(ex.getMessage());
+            } catch (SQLException ex) {
+                System.err.println(ex.getMessage());
+            }
+
         }
     }
     
@@ -80,15 +89,6 @@ public class Gerenciador{
             ex.printStackTrace();
         }
         
-        try {
-            incluir();
-            
-        } catch (ClassNotFoundException ex) {
-            System.err.println(ex.getMessage());
-        } catch (SQLException ex) {
-            System.err.println(ex.getMessage());
-        }
-       
     }
     
     private Connection obterConexao() throws ClassNotFoundException, SQLException {
@@ -96,7 +96,7 @@ public class Gerenciador{
         Class.forName("com.mysql.jdbc.Driver");
         
         Connection conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/agendabd", "root", ""); //TROCAR PARA O DRIVER DO NOSSO BANCO
+                "jdbc:mysql://localhost:3306/gerenciamentoprodutos", "root", "four"); //TROCAR PARA O DRIVER DO NOSSO BANCO
         return conn;
     }
 
