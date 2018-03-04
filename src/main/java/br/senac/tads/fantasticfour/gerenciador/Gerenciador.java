@@ -26,16 +26,7 @@ public class Gerenciador{
                   
         gerprod.Menu();
         
-        try {
-            gerprod.incluir();
-            
-            
-        } catch (ClassNotFoundException ex) {
-            System.err.println(ex.getMessage());
-        } catch (SQLException ex) {
-            System.err.println(ex.getMessage());
-        }
-
+        
     }
    
     public void Menu(){
@@ -44,7 +35,7 @@ public class Gerenciador{
         
         int menu;
         
-        System.out.println("Digite 0 - Sair | 1 - Incluir | 2 - Listar");
+        System.out.println("Digite 0 - Sair | 1 - Incluir | 2 - Consultar | 3 - Atualizar | 4 - Excluir");
         menu = leitor.nextInt();
         
         switch(menu){
@@ -88,7 +79,15 @@ public class Gerenciador{
         } catch (ParseException ex) {
             ex.printStackTrace();
         }
+        
+        try {
+            incluir();
             
+        } catch (ClassNotFoundException ex) {
+            System.err.println(ex.getMessage());
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
        
     }
     
